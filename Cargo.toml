@@ -1,0 +1,23 @@
+[package]
+authors = ["Flix <felix.dommes@rwth-aachen.de>"]
+categories = ["asynchronous", "concurrency", "rust-patterns"]
+description = "Library for mutual exclusion by keys."
+documentation = "https://docs.rs/key-lock"
+edition = "2021"
+homepage = "https://github.com/FlixCoder/key-lock"
+keywords = ["lock", "key", "mutual", "exclusion"]
+license = "MIT"
+name = "key-lock"
+readme = "README.md"
+repository = "https://github.com/FlixCoder/key-lock"
+resolver = "2"
+version = "0.1.0"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tokio = {version = "1.23.0", features = ["sync"]}
+
+[dev-dependencies]
+ntest = "0.9.0"
+tokio = {version = "1.23.0", features = ["rt-multi-thread", "macros"]}
