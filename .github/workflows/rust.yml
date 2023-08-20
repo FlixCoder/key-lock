@@ -1,0 +1,51 @@
+name: Rust
+
+on:
+  push:
+    branches: ["main"]
+    tags: ["*"]
+  pull_request:
+    branches: ["main"]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  check:
+    name: Check and Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Rust
+        shell: bash
+        run: |
+          rustup update
+          rustup component add clippy
+          rustup toolchain install nightly --component rustfmt
+
+      - name: Caching
+        uses: Swatinem/rust-cache@v2
+
+      - name: Formatting
+        shell: bash
+        run: cargo +nightly fmt -- --check
+
+      - name: Install cargo-lints
+        shell: bash
+        run: cargo install --git https://github.com/FlixCoder/cargo-lints
+
+      - name: Check and Clippy
+        shell: bash
+        run: cargo lints clippy --all-targets --workspace -- -D warnings
+
+      - name: Run tests
+        shell: bash
+        run: |
+          cargo test --workspace --no-run
+          cargo test --workspace -- --nocapture
