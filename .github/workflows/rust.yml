@@ -36,13 +36,9 @@ jobs:
         shell: bash
         run: cargo +nightly fmt -- --check
 
-      - name: Install cargo-lints
-        shell: bash
-        run: cargo install --git https://github.com/FlixCoder/cargo-lints
-
       - name: Check and Clippy
         shell: bash
-        run: cargo lints clippy --all-targets --workspace -- -D warnings
+        run: cargo clippy --all-targets --workspace -- -D warnings
 
       - name: Run tests
         shell: bash
