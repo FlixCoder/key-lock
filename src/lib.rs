@@ -4,8 +4,8 @@ use std::{
 	collections::HashMap,
 	hash::Hash,
 	sync::{
-		atomic::{AtomicUsize, Ordering},
 		Arc,
+		atomic::{AtomicUsize, Ordering},
 	},
 };
 
