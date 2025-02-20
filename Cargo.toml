@@ -10,7 +10,6 @@ license = "MIT"
 name = "key-lock"
 readme = "README.md"
 repository = "https://github.com/FlixCoder/key-lock"
-resolver = "2"
 rust-version = "1.85"
 version = "0.1.0"
 
