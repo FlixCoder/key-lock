@@ -1,4 +1,5 @@
-#![allow(clippy::expect_used)]
+//! Stress tests.
+#![allow(clippy::expect_used, reason = "Tests")]
 
 use std::sync::{Arc, Mutex};
 
@@ -12,7 +13,7 @@ async fn stress() {
 	let n = 10000;
 
 	let mut handles = Vec::new();
-	for _ in 0..n {
+	for _ in 0 .. n {
 		let lock_a = lock.clone();
 		let check_a = check_a.clone();
 		let handle = tokio::spawn(async move {

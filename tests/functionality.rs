@@ -1,3 +1,5 @@
+//! Functionality tests.
+
 use key_lock::KeyLock;
 
 #[test]
