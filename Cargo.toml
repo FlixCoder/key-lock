@@ -24,7 +24,7 @@ ntest = "0.9.3"
 tokio = {version = "1.43.0", features = ["rt-multi-thread", "macros"]}
 
 [lints.rust]
-dead_code = "warn"
+closure_returning_async_block = "warn"
 missing_debug_implementations = "warn"
 missing_docs = "warn"
 trivial_casts = "warn"
