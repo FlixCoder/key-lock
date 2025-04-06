@@ -1,4 +1,5 @@
 //! Functionality tests.
+#![allow(clippy::tests_outside_test_module, clippy::expect_used, reason = "Tests")]
 
 use key_lock::KeyLock;
 
